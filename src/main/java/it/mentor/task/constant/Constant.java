@@ -9,6 +9,9 @@ import it.mentor.task.calculation.impl.Subtraction;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Класс для хранения констант, используемых в проекте.
+ */
 public class Constant {
 
     public static final String INPUT_REGEX = "\\d{1,2}\\s{1}[+-/\\*]\\s{1}\\d{1,2}";

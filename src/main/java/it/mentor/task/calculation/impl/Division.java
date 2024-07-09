@@ -3,6 +3,9 @@ package it.mentor.task.calculation.impl;
 import it.mentor.task.calculation.Calculation;
 import it.mentor.task.exception.DivisionByZeroException;
 
+/**
+ * Класс Division реализует операцию деления.
+ */
 public class Division implements Calculation {
 
     @Override

@@ -17,15 +17,21 @@ import static it.mentor.task.constant.Constant.*;
 import static it.mentor.task.util.NumberUtils.isValidNumber;
 import static it.mentor.task.util.RegexValidator.isValid;
 
+/**
+ * Класс Parser отвечает за анализ математических выражений и выполнение вычислений.
+ */
 public class Parser {
 
+    /**
+     * Выполняет парсинг математического выражения и выводит результат вычисления.
+     */
     public void result() {
         String line = readLine();
         if (isValid(line, INPUT_REGEX)) {
             var operands = extractOperands(line);
+            var operator = extractOperator(line);
             var operandA = operands[0];
             var operandB = operands[1];
-            var operator = extractOperator(line);
             System.out.println(operandA);
             System.out.println(operandB);
             if (isValidNumber(operandA) && isValidNumber(operandB)) {
@@ -42,6 +48,11 @@ public class Parser {
 
     //------------------------------------------------------------------------------------------------------------------
 
+    /**
+     * Считывает введенную строку из консоли.
+     *
+     * @return считанная строка
+     */
     private String readLine() {
         System.out.print("Please enter expression: ");
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
@@ -58,11 +69,23 @@ public class Parser {
         }
     }
 
+    /**
+     * Извлекает операнды из математического выражения.
+     *
+     * @param expression математическое выражение
+     * @return массив из двух операндов
+     */
     private static int[] extractOperands(String expression) {
         String[] operands = expression.split(SPLIT_REGEX);
         return new int[]{Integer.parseInt(operands[0]), Integer.parseInt(operands[1])};
     }
 
+    /**
+     * Извлекает оператор из математического выражения.
+     *
+     * @param expression математическое выражение
+     * @return извлеченный оператор
+     */
     private static String extractOperator(String expression) {
         Pattern pattern = Pattern.compile(OPERATOR_REGEX);
         Matcher matcher = pattern.matcher(expression);
